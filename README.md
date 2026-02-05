@@ -56,5 +56,5 @@ jupyter notebook main.ipynb
 - If you plan to run large models locally, ensure you have sufficient GPU and memory resources; otherwise use Hugging Face Endpoints or smaller models.
 - `faiss-cpu` is specified for CPU-only environments; replace with the GPU variant if available.
 
-Made with :heart by uzbtrust
+Made with ❤️ by uzbtrust
 # Uzbek_LowResource_RAG
