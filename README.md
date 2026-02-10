@@ -1,47 +1,60 @@
-# 🚀 Hi, I'm [Ismingizni yozing] (@uzbtrust)
-### AI Researcher & Systems Engineer | Specializing in Autonomous Agents & Low-Resource NLP
+# Hallucination Detector
 
----
+A lightweight Retrieval-Augmented-Generation (RAG) demo that uses LangChain, Hugging Face models, sentence-transformers embeddings, and FAISS to retrieve context and generate answers constrained to that context. The project is provided as a Jupyter notebook (`main.ipynb`) for experimentation and learning.
 
-### 🔬 Research Interests & Focus
-Men murakkab ma'lumotlar integratsiyasi va sun'iy intellektning mantiqiy fikrlash (Reasoning) qobiliyatini rivojlantirish ustida ishlayman. MBZUAI yo'nalishida akademik tadqiqotlar va amaliy muhandislikni birlashtirishga intilaman.
+**Features**
+- Create dense embeddings with `sentence-transformers`.
+- Store and query vectors with FAISS.
+- Use Hugging Face endpoints and models via LangChain integrations.
+- Load API token from environment using `python-dotenv`.
 
-- **Agentic AI:** Grok-3 va ko'p agentli tizimlar orqali avtonom qaror qabul qilish.
-- **Low-Resource NLP:** O'zbek tili uchun faktik aniqlikka ega RAG tizimlarini qurish.
-- **Computer Vision:** Tasvirlarni segmentatsiya qilish va obyektlarni aniqlash (State-of-the-art CV).
+**Prerequisites**
+- Python 3.10 or newer
+- Recommended: A virtual environment for dependency isolation
 
----
+**Installation**
+1. Create and activate a virtual environment:
 
-### 🌟 Featured Projects
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
 
-| Project | Domain | Tech Stack |
-| :--- | :--- | :--- |
-| **[Autonomous-Market-Intelligence-Agent](link)** | Agentic AI | Grok-3, Playwright, Asyncio |
-| **[Uzbek_LowResource_RAG](link)** | NLP & RAG | LangChain LCEL, Llama-3, FAISS |
-| **[Road-Segmentation-AI](link)** | Computer Vision | PyTorch, U-Net, Deep Learning |
-| **[NutriScan-AI-Pro](link)** | Applied AI | Python, YOLO, Streamlit |
-| **[Spotify-Predictions-2030](link)** | Data Science | Forecasting, Pandas, Scikit-learn |
-| **[ProductRecognition](link)** | CV / Classification | CNNs, TensorFlow, OpenCV |
+2. Install dependencies:
 
----
+```bash
+pip install -r requirements.txt
+```
 
-### 🛠️ Core Tech Stack
-- **Languages:** Python (Advanced Asyncio & ABCs), SQL, C++.
-- **AI Frameworks:** PyTorch, LangChain, HuggingFace, OpenAI/xAI APIs.
-- **Data & Ops:** FAISS, Pinecone, Docker, Git, Linux.
+**Configuration**
+1. Create a `.env` file in the project root with your Hugging Face API token:
 
----
+```
+HUGGINGFACEHUB_API_TOKEN=<your_token_here>
+```
 
-### 📊 Mathematical Approach to Intelligence
-Men tizimlarni qurishda mantiqiy aniqlikka e'tibor beraman. Masalan, RAG tizimlarimda semantik yaqinlikni quyidagi formula orqali baholayman:
+The notebook calls `load_dotenv()` and reads the token with `os.getenv("HUGGINGFACEHUB_API_TOKEN")` so the token is automatically picked up from `.env`.
 
-$$\text{Similarity}(\mathbf{A}, \mathbf{B}) = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \|\mathbf{B}\|}$$
+**Usage**
+1. Start Jupyter Notebook and open `main.ipynb`:
 
----
+```bash
+jupyter notebook main.ipynb
+```
 
-### 📫 Connect with me
-- 💼 **LinkedIn:** [in/dostonbek-abdurakhmonov]
-- 📧 **Email:** [uzbekuzdev@gmail.com]
-- 📝 **Goal:** Currently preparing for advanced AI research at **MBZUAI**.
+2. Run the cells in order. The notebook demonstrates:
+- Initializing `HuggingFaceEmbeddings` with `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`.
+- Building a FAISS vector store from text chunks.
+- Loading a Hugging Face model endpoint and constructing a simple RAG pipeline.
 
-**Developed with ❤️ by uzbtrust**
+**Files**
+- [main.ipynb](main.ipynb) — Primary notebook demonstrating the pipeline
+- [requirements.txt](requirements.txt) — Pinned Python dependencies
+- [.gitignore](.gitignore) — Git ignore rules (includes `.env`)
+
+**Notes & Recommendations**
+- If you plan to run large models locally, ensure you have sufficient GPU and memory resources; otherwise use Hugging Face Endpoints or smaller models.
+- `faiss-cpu` is specified for CPU-only environments; replace with the GPU variant if available.
+
+Made with ❤️ by uzbtrust
+# Uzbek_LowResource_RAG
